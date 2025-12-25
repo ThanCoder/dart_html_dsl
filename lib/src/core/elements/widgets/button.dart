@@ -19,12 +19,15 @@ class Button extends HtmlElement {
              .borderRadius(BorderRadius.all(3.px))
              .color(CssColors.white)
              .padding(Padding.symmetric(vertical: 0.4.em, horizontal: 0.3.em))
-             .hover((s) => s.backgroundColor(CssColors.red).cursor(CssCursor.pointer))
+             .hover(
+               (s) =>
+                   s.backgroundColor(CssColors.red).cursor(CssCursor.pointer),
+             )
              .addProperty(style),
        );
 
   @override
   String render() {
-    return '<button $attrStr>$text</button>';
+    return '<button$attrStr>$text</button>';
   }
 }

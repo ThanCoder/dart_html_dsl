@@ -16,6 +16,6 @@ class TagElement extends HtmlElement {
 
   @override
   String render() {
-    return '<$tag $attrStr>${child?.render()}</$tag>';
+    return '<$tag$attrStr>${child?.render()}</$tag>';
   }
 }

@@ -88,13 +88,13 @@ abstract class HtmlPage extends HtmlWidget {
     final events = <HtmlWidget>[];
     _collectEvents(body, events);
 
-    return events.map((e) => e.render()).join('');
+    return events.map((e) => e.render()).join('\n');
   }
 
   String get getScopedCss {
     final styles = <CssStyle>[];
     _collectCsss(body, styles);
-    return styles.map((e) => e.css).join('');
+    return styles.map((e) => e.css).join('\n');
   }
 
   @override
@@ -108,7 +108,8 @@ abstract class HtmlPage extends HtmlWidget {
     final scriptTags = (pageProps.scripts ?? [])
         .map((e) => e.render())
         .join('');
-    return '''
+    final html =
+        '''
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -131,5 +132,17 @@ abstract class HtmlPage extends HtmlWidget {
 </body>
 </html>
 ''';
+    if (pageProps.minify) {
+      return // remove new lines
+      html
+          .replaceAll(RegExp(r'\n+'), '')
+          // collapse multiple spaces
+          .replaceAll(RegExp(r'\s{2,}'), ' ')
+          // remove space between tags
+          .replaceAll(RegExp(r'>\s+<'), '><')
+          .replaceAll(RegExp(r'\s+'), ' ')
+          .trim();
+    }
+    return html.trim();
   }
 }

@@ -9,7 +9,7 @@ import 'package:dart_html_dsl/src/core/widgets/text.dart';
 
 void main() {
   final html = Html5Page(
-    pageProps: PageProps(title: 'Dart Html DSL'),
+    pageProps: PageProps(title: 'Dart Html DSL', minify: true),
     body: ColumnWidget(
       children: [
         H1(child: Text('h1 test')),

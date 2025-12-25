@@ -6,10 +6,12 @@ class PageProps {
   final List<HtmlWidget>? headers;
   final List<HtmlWidget>? cssStyles;
   final List<HtmlWidget>? scripts;
+  final bool minify;
   PageProps({
     this.title = 'Untitled',
     this.headers,
     this.cssStyles,
     this.scripts,
+    this.minify = true,
   });
 }

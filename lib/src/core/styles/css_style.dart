@@ -35,7 +35,7 @@ class CssStyle extends HtmlWidget {
   }
 
   String _renderRule(String selector, Map<String, String> map) {
-    final prop = map.entries.map((e) => '  ${e.key}: ${e.value};').join('');
+    final prop = map.entries.map((e) => '  ${e.key}: ${e.value};').join('\n');
     return '''
 $selector {
 $prop
