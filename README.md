@@ -1,5 +1,13 @@
 # Dart HTML DSL
 
+## ⚠️ Warning
+
+> **Experimental Project**
+>
+> This project is currently under active experimentation.  
+> The API is not final, and required widgets and features are still being added and refined.  
+> **Breaking changes may occur at any time** until a stable release is announced.
+
 **dart_html_dsl** is a type-safe Dart DSL for building HTML, CSS, and JavaScript
 using pure Dart code.
 
