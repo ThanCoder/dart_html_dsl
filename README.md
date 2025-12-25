@@ -8,6 +8,13 @@
 > The API is not final, and required widgets and features are still being added and refined.  
 > **Breaking changes may occur at any time** until a stable release is announced.
 
+## Platform Support
+
+✅ Dart VM  
+✅ Flutter (Mobile / Desktop / Web)  
+✅ Server-side Dart  
+✅ Web (HTML generation only)
+
 **dart_html_dsl** is a type-safe Dart DSL for building HTML, CSS, and JavaScript
 using pure Dart code.
 
