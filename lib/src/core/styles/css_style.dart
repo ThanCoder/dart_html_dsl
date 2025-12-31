@@ -1,4 +1,4 @@
-import 'package:dart_html_dsl/src/core/widgets/html_widget.dart';
+import 'package:dart_html_dsl/src/core/interfaces/html_widget.dart';
 import 'package:dart_html_dsl/src/core/styles/css_collector.dart';
 import 'package:dart_html_dsl/src/core/styles/css_property.dart';
 
@@ -27,7 +27,7 @@ class CssStyle extends HtmlWidget {
     }
     // pseudo rules
     pseudos?.forEach((pseudo, prop) {
-      print(prop.map);
+
       buffer.writeln(_renderRule('$selector$pseudo', prop.map));
     });
 

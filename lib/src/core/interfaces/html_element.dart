@@ -1,11 +1,9 @@
-import 'package:dart_html_dsl/src/core/js/js_event.dart';
-import 'package:dart_html_dsl/src/core/js/js_event_binding.dart';
-import 'package:dart_html_dsl/src/core/styles/css_collector.dart';
-import 'package:dart_html_dsl/src/core/styles/css_property.dart';
-import 'package:dart_html_dsl/src/core/styles/css_style.dart';
-import 'package:dart_html_dsl/src/core/widgets/html_widget.dart';
+import 'package:dart_html_dsl/dart_html_dsl.dart';
 
 abstract class HtmlElement extends HtmlWidget {
+  final DomKey? key;
+  late final String _domKeyId;
+
   final HtmlWidget? child;
 
   final CssProperty? style;
@@ -26,12 +24,13 @@ abstract class HtmlElement extends HtmlWidget {
 
   final List<JsEvent> onEvent;
 
-  late final List<JsEventBinding> _bindings;
+  // late final List<JsEventBinding> _bindings;
   late final String _eventId;
   final bool readOnly;
   final bool disabled;
 
   HtmlElement({
+    this.key,
     this.child,
     this.style,
     this.id,
@@ -51,26 +50,43 @@ abstract class HtmlElement extends HtmlWidget {
     }
 
     _eventId = 'astro_ele_${ScopeId.next()}';
+    // key
+    _domKeyId = 'dk_${ScopeId.next()}';
+    if (key != null) {
+      key?.bind(this);
+    }
 
     // register events
-    _bindings = onEvent
-        .map((e) => JsEventBinding(selector: '[$getEventSelector]', event: e))
-        .toList();
+    // _bindings = onEvent
+    //     .map((e) => JsEventBinding(selector: getEventSelector, event: e))
+    //     .toList();
   }
 
+  String get jsSelector => '[data-dk="$_domKeyId"]';
+
   /// event
-  List<JsEventBinding> get bindings => _bindings;
-  String get getEventSelector =>
-      onEvent.isNotEmpty ? 'data-eid="$_eventId"' : '';
+  // List<JsEventBinding> get bindings => _bindings;
+  List<JsEventBinding> get bindings => onEvent
+      .map((e) => JsEventBinding(selector: getEventSelector, event: e))
+      .toList();
+
+  String get getEventSelector => onEvent.isNotEmpty ? eventSelector : '';
+
+  String get eventSelector => '[data-eid="$_eventId"]';
+  String get eventId => _eventId;
 
   CssStyle? get getScopedStyle => _scopedStyle;
 
   /// Render class/id/other attributes
   String get attrStr {
     final buffer = StringBuffer();
+    // key
+    if (key != null) {
+      buffer.write(' data-dk="$_domKeyId"');
+    }
     // event
-    if (getEventSelector.isEmpty) {
-      buffer.write(getEventSelector);
+    if (getEventSelector.isNotEmpty) {
+      buffer.write(' data-eid="$_eventId"');
     }
 
     // Classes: scoped + custom
@@ -84,7 +100,7 @@ abstract class HtmlElement extends HtmlWidget {
     if (id != null) buffer.write(' id="$id"');
 
     // default attributes
-    final allAttributes = attributes ?? {};
+    final allAttributes = <String, dynamic>{};
     // set default
     if (readOnly) {
       allAttributes['readonly'] = 'true';

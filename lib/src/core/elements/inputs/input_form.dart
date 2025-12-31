@@ -1,18 +1,16 @@
-import 'package:dart_html_dsl/src/core/elements/html_element.dart';
-import 'package:dart_html_dsl/src/core/widgets/html_widget.dart';
+import 'package:dart_html_dsl/dart_html_dsl.dart';
 
-class InputForm extends HtmlElement {
-  final List<HtmlWidget> children;
+class InputForm extends ListElement {
   final FormMethod method;
   InputForm({
+    required super.children,
     this.method = FormMethod.get,
-    required this.children,
     super.attributes,
     super.customClass,
     super.id,
     super.onEvent,
     super.style,
-  }) : super(child: EmptyWidget());
+  });
 
   @override
   String render() {

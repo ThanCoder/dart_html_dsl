@@ -1,21 +1,14 @@
 import 'dart:io';
 
-import 'package:dart_html_dsl/src/core/elements/others/header_elements.dart';
-import 'package:dart_html_dsl/src/core/elements/widgets/button.dart';
-import 'package:dart_html_dsl/src/core/elements/widgets/column_widget.dart';
-import 'package:dart_html_dsl/src/core/pages/html5_page.dart';
-import 'package:dart_html_dsl/src/core/pages/page_props.dart';
-import 'package:dart_html_dsl/src/core/widgets/text.dart';
+import 'package:dart_html_dsl/src/core/index.dart';
+
+import 'home_page.dart';
+
+final h1Key = DomKey();
 
 void main() {
-  final html = Html5Page(
-    pageProps: PageProps(title: 'Dart Html DSL', minify: true),
-    body: ColumnWidget(
-      children: [
-        H1(child: Text('h1 test')),
-        Button(text: 'hello'),
-      ],
-    ),
+  final html = HomePage(
+    pageProps: PageProps(title: 'Dart Html DSL', minify: false),
   );
 
   final file = File('index.html');

@@ -1,4 +1,4 @@
-import 'package:dart_html_dsl/src/core/elements/html_element.dart';
+import 'package:dart_html_dsl/src/core/interfaces/html_element.dart';
 import 'package:dart_html_dsl/src/core/extensions/css/unit_extensions.dart';
 import 'package:dart_html_dsl/src/core/styles/border_radius.dart';
 import 'package:dart_html_dsl/src/core/styles/border_value.dart';
@@ -12,6 +12,7 @@ import 'package:dart_html_dsl/src/core/styles/padding_value.dart';
 class Select extends HtmlElement {
   final List<Option> options;
   Select({
+    super.key,
     CssProperty? style,
     super.id,
     super.attributes,

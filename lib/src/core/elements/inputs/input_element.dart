@@ -1,6 +1,6 @@
-import 'package:dart_html_dsl/src/core/elements/html_element.dart';
+import 'package:dart_html_dsl/src/core/interfaces/html_element.dart';
 import 'package:dart_html_dsl/src/core/elements/inputs/input_element_type.dart';
-import 'package:dart_html_dsl/src/core/widgets/html_widget.dart';
+import 'package:dart_html_dsl/src/core/interfaces/html_widget.dart';
 
 class InputElement extends HtmlElement {
   final InputElementType type;

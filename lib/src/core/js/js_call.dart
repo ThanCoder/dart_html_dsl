@@ -1,25 +1,21 @@
-class JsCall {
-  final String expression;
-  JsCall(this.expression);
-
-  factory JsCall.callDartDispatch() {
-    return JsCall('__dartDispatch("btn_1", this, event)');
-  }
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+abstract class JsCall {
+  const JsCall();
+  String get expression;
 }
 
 class JsCallAlert extends JsCall {
   final String text;
-  JsCallAlert(this.text) : super('window.alert(\'$text\')');
+  const JsCallAlert(this.text);
+
+  @override
+  String get expression => 'window.alert(\'$text\')';
 }
 
-class JsCallConsole extends JsCall {
-  final String text;
+class JsCallRaw extends JsCall {
+  final String jsCode;
+  JsCallRaw({required this.jsCode});
 
-  JsCallConsole.log(this.text) : super('console.log(\'$text\')');
-  JsCallConsole.assertLog(this.text) : super('console.assert(\'$text\')');
-  JsCallConsole.clear({this.text = ''}) : super('console.clear()');
-  JsCallConsole.debug(this.text) : super('console.debug(\'$text\')');
-  JsCallConsole.error(this.text) : super('console.error(\'$text\')');
-  JsCallConsole.warn(this.text) : super('console.warn(\'$text\')');
-  JsCallConsole.info(this.text) : super('console.info(\'$text\')');
+  @override
+  String get expression => jsCode;
 }

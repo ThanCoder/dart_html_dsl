@@ -8,6 +8,7 @@ import 'package:dart_html_dsl/src/core/styles/padding_value.dart';
 
 class Card extends TagElement {
   Card({
+    super.key,
     super.attributes,
     super.customClass,
     super.id,

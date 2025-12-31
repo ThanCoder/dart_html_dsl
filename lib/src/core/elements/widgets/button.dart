@@ -4,6 +4,7 @@ class Button extends HtmlElement {
   final String text;
 
   Button({
+    super.key,
     required this.text,
     super.onEvent,
     super.attributes,

@@ -1,4 +1,4 @@
-import 'package:dart_html_dsl/src/core/widgets/html_widget.dart';
+import 'package:dart_html_dsl/src/core/interfaces/html_widget.dart';
 
 class Text extends HtmlWidget {
   final String text;

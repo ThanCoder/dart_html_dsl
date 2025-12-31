@@ -1,1 +1,122 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Dart Html DSL</title><style> .s_3 { display: flex; justify-content: flex-start; align-items: flex-start; flex-direction: column; gap: 0px;}.s_1 { background-color: teal; border: 0px solid black; border-radius: 3px 3px 3px 3px; color: white; padding: 0.4em 0.3em 0.4em 0.3em;}.s_1:hover { background-color: #f44336; cursor: pointer;} </style></head><body><div class="s_3"><h1>h1 test</h1><button class="s_1">hello</button></div></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dart Html DSL</title>
+    
+
+    <style>
+    
+    .s_6 {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 0px;
+}
+
+
+.s_0 {
+  color: #f44336;
+}
+
+
+.s_3 {
+  background-color: teal;
+  border: 0px solid black;
+  border-radius: 3px 3px 3px 3px;
+  color: white;
+  padding: 0.4em 0.3em 0.4em 0.3em;
+}
+
+.s_3:hover {
+  background-color: #f44336;
+  cursor: pointer;
+}
+
+
+.s_19 {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 0.4em;
+}
+
+
+.s_13 {
+  background-color: teal;
+  border: 0px solid black;
+  border-radius: 3px 3px 3px 3px;
+  color: white;
+  padding: 0.4em 0.3em 0.4em 0.3em;
+}
+
+.s_13:hover {
+  background-color: #f44336;
+  cursor: pointer;
+}
+
+
+.s_16 {
+  background-color: teal;
+  border: 0px solid black;
+  border-radius: 3px 3px 3px 3px;
+  color: white;
+  padding: 0.4em 0.3em 0.4em 0.3em;
+}
+
+.s_16:hover {
+  background-color: #f44336;
+  cursor: pointer;
+}
+
+
+    </style>
+</head>
+<body>
+
+    <div class="s_6"><h1 class="s_0">h1 test</h1>
+<button data-eid="astro_ele_s_4" class="s_3">hello</button>
+<div stateful-id="astro_ele_s_0"></div></div>
+
+    
+    <script>document.querySelector('[data-eid="astro_ele_s_4"]').addEventListener('click', (e)=> {
+    window.alert('alert');;
+  });
+
+  class C_astro_ele_s_0 {
+    constructor(root) {
+      this.root = root;
+      this.state = { count: 0,age: 28 };
+      this.render();
+    }
+
+    setState(next) {
+      Object.assign(this.state, next);
+      this.render();
+    }
+
+    render() {
+      const state = this.state;
+      this.root.innerHTML = `<div class="s_19"><h2>${this.state.count}</h2><h1>${this.state.age}</h1><button data-eid="astro_ele_s_14" class="s_13">Incre</button><button data-eid="astro_ele_s_17" class="s_16">deCre</button></div>`;
+      this.bind();
+    }
+
+    bind() {
+      document.querySelector('[data-eid="astro_ele_s_14"]').addEventListener('click', (e)=> {
+    this.setState({ count: this.state.count + 1});;
+  });
+
+document.querySelector('[data-eid="astro_ele_s_17"]').addEventListener('click', (e)=> {
+    this.setState({ count: this.state.count - 1});;
+  });
+
+    }
+  }
+
+  new C_astro_ele_s_0(document.querySelector('[stateful-id="astro_ele_s_0"]'));
+</script>
+</body>
+</html>

@@ -1,7 +1,8 @@
-import 'package:dart_html_dsl/src/core/elements/others/tag_element.dart';
+import 'package:dart_html_dsl/dart_html_dsl.dart';
 
 class H1 extends TagElement {
   H1({
+    super.key,
     super.id,
     super.customClass,
     super.style,
@@ -15,6 +16,7 @@ class H1 extends TagElement {
 
 class H2 extends TagElement {
   H2({
+    super.key,
     super.id,
     super.customClass,
     super.style,
@@ -28,6 +30,7 @@ class H2 extends TagElement {
 
 class H3 extends TagElement {
   H3({
+    super.key,
     super.id,
     super.customClass,
     super.style,
@@ -41,6 +44,7 @@ class H3 extends TagElement {
 
 class H4 extends TagElement {
   H4({
+    super.key,
     super.id,
     super.customClass,
     super.style,

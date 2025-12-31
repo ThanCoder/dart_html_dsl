@@ -1,11 +1,11 @@
 import 'package:dart_html_dsl/dart_html_dsl.dart';
 
-class JsEvent {
+abstract class HtmlEvent {
   ///
   /// click, input, change...
   ///
-  final JsEventName eventName;
+  final JsEventName name;
   final JsCall action;
 
-  const JsEvent({required this.eventName, required this.action});
+  HtmlEvent({required this.name, required this.action});
 }

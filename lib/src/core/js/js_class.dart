@@ -1,4 +1,4 @@
-import 'package:dart_html_dsl/src/core/widgets/html_widget.dart';
+import 'package:dart_html_dsl/dart_html_dsl.dart';
 
 class JsClass extends HtmlWidget {
   final String name;
@@ -32,3 +32,4 @@ $initCommand
 </script>
 ''';
 }
+

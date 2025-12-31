@@ -1,15 +1,10 @@
-import 'package:dart_html_dsl/src/core/elements/html_element.dart';
-import 'package:dart_html_dsl/src/core/enums/align_items.dart';
-import 'package:dart_html_dsl/src/core/enums/display.dart';
-import 'package:dart_html_dsl/src/core/enums/justify_content.dart';
-import 'package:dart_html_dsl/src/core/styles/css_property.dart';
-import 'package:dart_html_dsl/src/core/widgets/html_widget.dart';
+import 'package:dart_html_dsl/dart_html_dsl.dart';
 
-class RowWidget extends HtmlElement {
-  final List<HtmlWidget> children;
+class RowWidget extends ListElement {
   final JustifyContent justify; // start, center, end, space-between ...
   final AlignItems align; // start, center, end ...
   RowWidget({
+    super.key,
     super.attributes,
     super.customClass,
     super.id,
@@ -17,11 +12,10 @@ class RowWidget extends HtmlElement {
     super.readOnly,
     super.disabled,
     CssProperty? style,
-    required this.children,
+    required super.children,
     this.justify = JustifyContent.start,
     this.align = AlignItems.start,
   }) : super(
-         child: EmptyWidget(),
          style: CssProperty()
            ..display(Display.flex)
            ..justifyContent(justify)

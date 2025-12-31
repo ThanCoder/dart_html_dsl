@@ -1,5 +1,5 @@
-import 'package:dart_html_dsl/src/core/pages/html_page.dart';
+import 'package:dart_html_dsl/dart_html_dsl.dart';
 
-class Html5Page extends HtmlPage {
-  Html5Page({required super.pageProps, required super.body});
+abstract class Html5Page extends HtmlPage {
+  Html5Page({required super.pageProps});
 }

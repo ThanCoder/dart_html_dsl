@@ -1,7 +1,8 @@
-import 'package:dart_html_dsl/src/core/elements/others/tag_element.dart';
+import 'package:dart_html_dsl/dart_html_dsl.dart';
 
 class Div extends TagElement {
   Div({
+    super.key,
     super.id,
     super.customClass,
     super.style,
