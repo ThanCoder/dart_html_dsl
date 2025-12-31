@@ -12,6 +12,9 @@ abstract class JsStateful extends HtmlWidget implements JsScriptCode {
       'astro_ele_${BuildId.next()}'; // ✅ always unique
   late final String jsClassName = 'C_$statefulId'; // ✅ unique class
 
+  ///
+  /// ### For Javascript Object
+  ///
   Map<String, dynamic> get initialState => {};
 
   /// JS template (uses state)
@@ -40,7 +43,7 @@ abstract class JsStateful extends HtmlWidget implements JsScriptCode {
 
   @override
   String jsSource() {
-    BuildId.reset();
+    BuildId.reset(); // ✅ အရမ်းအရေးကြီး
 
     final stateJs = initialState.entries
         .map((e) => '${e.key}: ${_jsValue(e.value)}')
