@@ -8,7 +8,11 @@ final h1Key = DomKey();
 
 void main() {
   final html = HomePage(
-    pageProps: PageProps(title: 'Dart Html DSL', minify: false),
+    pageProps: PageProps(
+      title: 'Dart Html DSL',
+      minify: false,
+      headers: [CssHeaderLink.href('style.css'), CssHeaderLink.shortcutIcon()],
+    ),
   );
 
   final file = File('index.html');

@@ -6,3 +6,4 @@ export 'dom_key.dart';
 export 'js_stateful.dart';
 export 'js_stateful_component.dart';
 export 'html_list_element.dart';
+export 'html_script.dart';
