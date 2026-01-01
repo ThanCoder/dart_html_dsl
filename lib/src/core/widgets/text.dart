@@ -4,7 +4,7 @@ class Text extends HtmlWidget {
   final String text;
   Text(this.text);
   @override
-  String render() {
+  String renderHtml() {
     return text;
   }
 }

@@ -6,6 +6,10 @@ class HomePage extends HtmlPage {
   @override
   HtmlWidget build() {
     return ColumnWidget(
+      style: CssProperty()
+          .backgroundColor(CssColors.pink)
+          .boxShadowTwoL(CssColors.green, 4.px, 4.px)
+          .borderRadius(BorderRadius.all(9.px)),
       children: [
         H1(style: CssProperty().color(CssColors.red), child: Text('h1 test')),
 
@@ -13,41 +17,6 @@ class HomePage extends HtmlPage {
           text: 'hello',
           onEvent: [
             JsEvent(eventName: JsEventName.click, action: JsCallAlert('alert')),
-          ],
-        ),
-        Counter2(),
-      ],
-    );
-  }
-}
-
-class Counter2 extends JsStateful {
-  @override
-  Map<String, dynamic> get initialState => {'count': 0, 'age': 28};
-
-  @override
-  HtmlWidget build() {
-    return ColumnWidget(
-      gap: 0.4.em,
-      children: [
-        H2(child: Text(getState('count'))),
-        H1(child: Text(getState('age'))),
-        Button(
-          text: 'Incre',
-          onEvent: [
-            JsEvent(
-              eventName: JsEventName.click,
-              action: JsCallState('count', 'count + 1'),
-            ),
-          ],
-        ),
-        Button(
-          text: 'deCre',
-          onEvent: [
-            JsEvent(
-              eventName: JsEventName.click,
-              action: JsCallState('count', 'count - 1'),
-            ),
           ],
         ),
       ],

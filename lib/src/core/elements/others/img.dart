@@ -17,7 +17,7 @@ class Img extends HtmlElement {
     this.alt = 'img',
   });
   @override
-  String render() {
+  String renderHtml() {
     return '<img src="$src" alt="$alt" $attrStr />';
   }
 }

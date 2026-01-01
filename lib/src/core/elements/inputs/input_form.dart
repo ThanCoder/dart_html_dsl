@@ -1,6 +1,6 @@
 import 'package:dart_html_dsl/dart_html_dsl.dart';
 
-class InputForm extends ListElement {
+class InputForm extends HtmlListElement {
   final FormMethod method;
   InputForm({
     required super.children,
@@ -13,10 +13,10 @@ class InputForm extends ListElement {
   });
 
   @override
-  String render() {
+  String renderHtml() {
     return '''
 <form method="${method.name}" action="#" $attrStr>
-    ${children.map((e) => e.render()).join('\n')}
+    ${children.map((e) => e.renderHtml()).join('\n')}
 </form>
   ''';
   }

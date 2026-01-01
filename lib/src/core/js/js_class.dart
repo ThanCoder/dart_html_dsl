@@ -20,7 +20,7 @@ class JsClass extends HtmlWidget {
   JsClass(this.name, this.body, {this.initCommand});
 
   @override
-  String render() =>
+  String renderHtml() =>
       '''
 <script>
   class $name {
@@ -32,4 +32,3 @@ $initCommand
 </script>
 ''';
 }
-

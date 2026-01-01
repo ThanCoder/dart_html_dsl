@@ -1,6 +1,6 @@
 import 'package:dart_html_dsl/dart_html_dsl.dart';
 
-class RowWidget extends ListElement {
+class RowWidget extends HtmlListElement {
   final JustifyContent justify; // start, center, end, space-between ...
   final AlignItems align; // start, center, end ...
   RowWidget({
@@ -21,12 +21,4 @@ class RowWidget extends ListElement {
            ..justifyContent(justify)
            ..alignItems(align).addProperty(style),
        );
-
-  @override
-  String render() {
-    final childrenHtml = children.map((c) => c.render()).join('\n');
-    return '<div $attrStr>$childrenHtml</div>';
-  }
-
-  //return '<div style="display:flex; justify-content:$justify; align-items:$align;">$childrenHtml</div>';
 }

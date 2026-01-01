@@ -5,3 +5,5 @@ export 'display.dart';
 export 'flex_direction.dart';
 export 'justify_content.dart';
 export 'text_align.dart';
+export 'box_sizing.dart';
+export 'box_shadow.dart';

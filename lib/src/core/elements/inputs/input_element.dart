@@ -22,7 +22,7 @@ class InputElement extends HtmlElement {
        );
 
   @override
-  String render() {
+  String renderHtml() {
     return '<input type="${type.value}" $attrStr/>';
   }
 }

@@ -1,15 +1,8 @@
 import 'package:dart_html_dsl/dart_html_dsl.dart';
 
 abstract class JsStateful extends HtmlWidget implements JsScriptCode {
-  HtmlWidget? _cachedTree;
-
-  HtmlWidget _tree() {
-    _cachedTree ??= build();
-    return _cachedTree!;
-  }
-
   late final String statefulId =
-      'astro_ele_${BuildId.next()}'; // ✅ always unique
+      'astro_ele_${_BuildId.next()}'; // ✅ always unique
   late final String jsClassName = 'C_$statefulId'; // ✅ unique class
 
   ///
@@ -17,61 +10,46 @@ abstract class JsStateful extends HtmlWidget implements JsScriptCode {
   ///
   Map<String, dynamic> get initialState => {};
 
-  /// JS template (uses state)
-  HtmlWidget build();
-
   String get statefulSelector => '[stateful-id="$statefulId"]';
 
   @override
-  String render() {
+  String renderHtml() {
     return '<div stateful-id="$statefulId"></div>';
   }
 
   dynamic getState(String key) => '\${this.state.$key}';
 
-  String get jsInnerCodes {
-    final codes = <String>[];
-    collectJsCode(_tree(), codes);
-    return codes.join('\n');
-  }
-
-  String get globalCss {
-    final css = <String>[];
-    collectCsss(_tree(), css);
-    return css.join('\n');
-  }
-
   @override
   String jsSource() {
-    BuildId.reset(); // ✅ အရမ်းအရေးကြီး
+    _BuildId.reset(); // ✅ အရမ်းအရေးကြီး
 
     final stateJs = initialState.entries
         .map((e) => '${e.key}: ${_jsValue(e.value)}')
         .join(',');
-    final builded = _tree();
-    final template = escapeJs(builded.render());
+    final builded = tree();
+    final template = escapeJs(builded.renderHtml());
 
     return '''
   class $jsClassName {
     constructor(root) {
       this.root = root;
       this.state = { $stateJs };
-      this.render();
+      this.renderHtml();
     }
 
     setState(next) {
       Object.assign(this.state, next);
-      this.render();
+      this.renderHtml();
     }
 
-    render() {
+    renderHtml() {
       const state = this.state;
       this.root.innerHTML = `$template`;
       this.bind();
     }
 
     bind() {
-      $jsInnerCodes
+      $jsScript
     }
   }
 
@@ -86,7 +64,7 @@ abstract class JsStateful extends HtmlWidget implements JsScriptCode {
   }
 }
 
-class BuildId {
+class _BuildId {
   static int _i = 0;
 
   static void reset() {

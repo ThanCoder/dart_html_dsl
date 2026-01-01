@@ -1,10 +1,4 @@
-import 'package:dart_html_dsl/src/core/elements/others/tag_element.dart';
-import 'package:dart_html_dsl/src/core/extensions/css/unit_extensions.dart';
-import 'package:dart_html_dsl/src/core/styles/border_radius.dart';
-import 'package:dart_html_dsl/src/core/styles/css_color.dart';
-import 'package:dart_html_dsl/src/core/styles/css_colors.dart';
-import 'package:dart_html_dsl/src/core/styles/css_property.dart';
-import 'package:dart_html_dsl/src/core/styles/padding_value.dart';
+import 'package:dart_html_dsl/dart_html_dsl.dart';
 
 class Card extends TagElement {
   Card({
@@ -23,6 +17,7 @@ class Card extends TagElement {
              .backgroundColor(CssColors.hexColor(0x3c3c3c))
              .borderRadius(BorderRadius.all(4.px))
              .padding(Padding.all(0.4.em))
+             .display(Display.block)
              .addProperty(style),
        );
 }

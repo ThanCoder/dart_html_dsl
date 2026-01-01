@@ -15,7 +15,7 @@ class ListView extends HtmlElement {
   String get itemJsTemplate => _itemTemplate;
 
   @override
-  String render() {
+  String renderHtml() {
     return '<ul $attrStr></ul>';
   }
 }

@@ -31,11 +31,11 @@ class Select extends HtmlElement {
        );
 
   @override
-  String render() {
+  String renderHtml() {
     final buffer = StringBuffer();
     buffer.write('<select$attrStr>');
     for (var o in options) {
-      buffer.write(o.render());
+      buffer.write(o.renderHtml());
     }
     buffer.write('</select>');
     return buffer.toString();
@@ -48,5 +48,5 @@ class Option extends HtmlElement {
   Option({required this.value, required this.text}) : super(child: null);
 
   @override
-  String render() => '<option value="$value">$text</option>';
+  String renderHtml() => '<option value="$value">$text</option>';
 }

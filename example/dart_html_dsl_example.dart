@@ -12,5 +12,5 @@ void main() {
   );
 
   final file = File('index.html');
-  file.writeAsString(html.render());
+  file.writeAsString(html.renderHtml());
 }

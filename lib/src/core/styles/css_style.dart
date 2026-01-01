@@ -17,7 +17,7 @@ class CssStyle extends HtmlWidget {
       pseudos = cssProperty.pseudos;
 
   @override
-  String render() => css;
+  String renderHtml() => css;
 
   String get css {
     final buffer = StringBuffer();
@@ -27,7 +27,6 @@ class CssStyle extends HtmlWidget {
     }
     // pseudo rules
     pseudos?.forEach((pseudo, prop) {
-
       buffer.writeln(_renderRule('$selector$pseudo', prop.map));
     });
 

@@ -17,11 +17,12 @@ class CssProperty {
   }
 
   static CssProperty fromMap(Map<String, String> map) {
-    return CssProperty()..addMap(map);
+    return CssProperty().addMap(map);
   }
 
-  void addMap(Map<String, String> map) {
+  CssProperty addMap(Map<String, String> map) {
     _map.addAll(map);
+    return this;
   }
 
   void clear() {

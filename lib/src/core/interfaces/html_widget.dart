@@ -1,69 +1,33 @@
-import 'package:dart_html_dsl/dart_html_dsl.dart';
+import 'package:dart_html_dsl/src/core/mixins/cache_tree_mixin.dart';
+import 'package:dart_html_dsl/src/core/mixins/render_js_mixin.dart';
+import 'package:dart_html_dsl/src/core/mixins/script_collector_mixin.dart';
+import 'package:dart_html_dsl/src/core/mixins/script_escape_mixin.dart';
 
-abstract class HtmlWidget {
-  String render();
-  String renderJs() => render();
+abstract class HtmlWidget
+    with
+        ScriptCollectorMixin,
+        CacheTreeMixin,
+        RenderJsMixin,
+        ScriptEscapeMixin {
+  @override
+  HtmlWidget build() => EmptyWidget();
 
-  void collectCsss(HtmlWidget widget, List<String> outCss) {
-    // print('html css widget: $widget');
-    if (widget is CssStyle) {
-      outCss.add(widget.css);
-    }
-    if (widget is JsStateful) {
-      outCss.add(widget.globalCss);
-    }
-    if (widget is HtmlElement) {
-      if (widget.getScopedStyle != null) {
-        outCss.add(widget.getScopedStyle!.css);
-      }
-      if (widget.child != null) {
-        collectCsss(widget.child!, outCss);
-      }
-    }
-    if (widget is ListElement) {
-      for (final item in widget.children) {
-        collectCsss(item, outCss);
-      }
-    }
+  @override
+  String get cssScript {
+    final out = <String>{};
+    collectCsss(tree(), out);
+    return out.join('\n');
   }
 
-  void collectJsCode(HtmlWidget widget, List<String> out) {
-    // print('html widget: $widget');
-    if (widget is JsStateful) {
-      out.add(widget.jsSource());
-      return; // ✅ early return
-    }
-    if (widget is JsScriptCode) {
-      out.add((widget as JsScriptCode).jsSource());
-    }
-
-    if (widget is HtmlElement) {
-      if (widget.bindings.isNotEmpty) {
-        out.addAll(widget.bindings.map((e) => e.jsSource(ele: widget)));
-      }
-      if (widget.child != null) {
-        collectJsCode(widget.child!, out);
-      }
-    }
-
-    if (widget is ListElement) {
-      for (final w in widget.children) {
-        collectJsCode(w, out);
-      }
-    }
-  }
-
-  String escapeJs(String html) {
-    return html
-        .replaceAll('\\', r'\\')
-        .replaceAll('`', r'\`')
-        .replaceAll('\$', r'\$')
-        .replaceAll('\\\$', '\$')
-        .replaceAll('\n', '');
+  @override
+  String get jsScript {
+    final codes = <String>{};
+    collectJsCode(tree(), codes);
+    return codes.join('\n');
   }
 }
 
 class EmptyWidget extends HtmlWidget {
   @override
-  String render() => '';
+  String renderHtml() => '';
 }

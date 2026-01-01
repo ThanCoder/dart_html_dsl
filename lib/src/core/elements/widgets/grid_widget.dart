@@ -1,6 +1,6 @@
 import 'package:dart_html_dsl/dart_html_dsl.dart';
 
-class GridWidget extends ListElement {
+class GridWidget extends HtmlListElement {
   final GridTemplateColumns columns;
   final CssUnit gap;
   final JustifyContent justify;
@@ -28,10 +28,4 @@ class GridWidget extends ListElement {
              .justifyContent(justify)
              .addProperty(style),
        );
-
-  @override
-  String render() {
-    final childrenHtml = children.map((c) => c.render()).join('');
-    return '<div $attrStr>$childrenHtml</div>';
-  }
 }

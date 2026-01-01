@@ -24,7 +24,7 @@ class Link extends HtmlElement {
          },
        );
   @override
-  String render() {
+  String renderHtml() {
     return '<a href="$href" $attrStr>$text</a>';
   }
 }

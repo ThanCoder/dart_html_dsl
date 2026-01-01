@@ -1,42 +1,20 @@
 import 'package:dart_html_dsl/dart_html_dsl.dart';
 
 abstract class HtmlPage extends HtmlWidget {
-  HtmlWidget? _cachedTree;
-
-  HtmlWidget _tree() {
-    _cachedTree ??= build();
-    return _cachedTree!;
-  }
-
   final PageProps pageProps;
-  HtmlWidget build();
 
   HtmlPage({required this.pageProps});
 
-  String get getJSScript {
-    final events = <String>[];
-    collectJsCode(_tree(), events);
-    return events.join('\n');
-  }
-
-  String get getScopedCss {
-    final styles = <String>[];
-    collectCsss(_tree(), styles);
-    return styles.map((e) => e).join('\n');
-  }
-
   @override
-  String render() {
-    final tree = _tree(); //call only onces
-
+  String renderHtml() {
     final headerTags = (pageProps.headers ?? [])
-        .map((e) => e.render())
+        .map((e) => e.renderHtml())
         .join('');
     final cssStyleTags = (pageProps.cssStyles ?? [])
-        .map((e) => e.render())
+        .map((e) => e.renderHtml())
         .join('');
     final scriptTags = (pageProps.scripts ?? [])
-        .map((e) => e.render())
+        .map((e) => e.renderHtml())
         .join('');
     final html =
         '''
@@ -50,15 +28,15 @@ abstract class HtmlPage extends HtmlWidget {
 
     <style>
     $cssStyleTags
-    $getScopedCss
+    $cssScript
     </style>
 </head>
 <body>
 
-    ${tree.render()}
+    ${tree().renderHtml()}
 
     $scriptTags
-    ${getJSScript.isEmpty ? '' : '<script>$getJSScript</script>'}
+    ${jsScript.isEmpty ? '' : '<script>$jsScript</script>'}
 </body>
 </html>
 ''';

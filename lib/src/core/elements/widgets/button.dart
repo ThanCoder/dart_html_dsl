@@ -28,7 +28,7 @@ class Button extends HtmlElement {
        );
 
   @override
-  String render() {
+  String renderHtml() {
     return '<button$attrStr>$text</button>';
   }
 }

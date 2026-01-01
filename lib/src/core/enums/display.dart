@@ -4,6 +4,7 @@ enum Display {
   block('block'),
   inline('inline'),
   flex('flex'),
+  inlineFlex('inline-flex'),
   grid('grid'),
   none('none');
 
