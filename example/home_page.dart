@@ -8,8 +8,8 @@ class HomePage extends HtmlPage {
     return ColumnWidget(
       style: CssProperty()
           .backgroundColor(CssColors.pink)
-          .boxShadowTwoL(CssColors.green, 4.px, 4.px)
-          .borderRadius(BorderRadius.all(9.px)),
+          .borderRadius(BorderRadius.only())
+          .border(Border.style(BorderStyle.dashed)),
       children: [
         H1(style: CssProperty().color(CssColors.red), child: Text('h1 test')),
 

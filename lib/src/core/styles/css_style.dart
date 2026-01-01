@@ -1,8 +1,7 @@
-import 'package:dart_html_dsl/src/core/interfaces/html_widget.dart';
 import 'package:dart_html_dsl/src/core/styles/css_collector.dart';
 import 'package:dart_html_dsl/src/core/styles/css_property.dart';
 
-class CssStyle extends HtmlWidget {
+class CssStyle {
   final CssScopeType scopeType;
   final String selector;
   final CssProperty cssProperty;
@@ -15,9 +14,6 @@ class CssStyle extends HtmlWidget {
   CssStyle.scoped(this.selector, this.cssProperty)
     : scopeType = CssScopeType.scoped,
       pseudos = cssProperty.pseudos;
-
-  @override
-  String renderHtml() => css;
 
   String get css {
     final buffer = StringBuffer();

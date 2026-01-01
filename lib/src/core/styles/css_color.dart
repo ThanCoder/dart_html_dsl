@@ -1,9 +1,9 @@
-import 'package:dart_html_dsl/src/core/enums/css_named_color.dart';
+import 'package:dart_html_dsl/src/core/styles/css_named_color.dart';
+import 'package:dart_html_dsl/src/core/mixins/css_value_mixin.dart';
 import 'package:dart_html_dsl/src/core/styles/css_property.dart';
 
-sealed class CssColor {
+sealed class CssColor with CssValueMixin {
   const CssColor();
-  String get css;
 }
 
 class NamedColor extends CssColor {

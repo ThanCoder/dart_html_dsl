@@ -1,13 +1,4 @@
-import 'package:dart_html_dsl/src/core/interfaces/html_element.dart';
-import 'package:dart_html_dsl/src/core/extensions/css/unit_extensions.dart';
-import 'package:dart_html_dsl/src/core/styles/border_radius.dart';
-import 'package:dart_html_dsl/src/core/styles/border_value.dart';
-import 'package:dart_html_dsl/src/core/styles/css_color.dart';
-import 'package:dart_html_dsl/src/core/styles/css_colors.dart';
-import 'package:dart_html_dsl/src/core/styles/css_property.dart';
-import 'package:dart_html_dsl/src/core/styles/css_pseudo.dart';
-import 'package:dart_html_dsl/src/core/styles/css_unit.dart';
-import 'package:dart_html_dsl/src/core/styles/padding_value.dart';
+import 'package:dart_html_dsl/dart_html_dsl.dart';
 
 class Select extends HtmlElement {
   final List<Option> options;
@@ -22,7 +13,7 @@ class Select extends HtmlElement {
          child: null,
          style: CssProperty()
              .cssWith(200.px)
-             .padding(Padding.all(8.px))
+             .paddingValue(PaddingValue.all(8.px))
              .border(Border.all(width: 1.px, color: CssColors.gray))
              .borderRadius(BorderRadius.all(4.px))
              .backgroundColor(CssColors.white)

@@ -1,22 +1,18 @@
+import 'package:dart_html_dsl/src/core/mixins/css_value_mixin.dart';
 import 'package:dart_html_dsl/src/core/styles/css_property.dart';
 import 'package:dart_html_dsl/src/core/styles/css_unit.dart';
 
-sealed class PaddingValue {
-  const PaddingValue();
-  String get css;
-}
-
-class Padding extends PaddingValue {
+class Margin with CssValueMixin {
   final CssUnit top, right, bottom, left;
 
-  const Padding.all(CssUnit value)
+  const Margin.all(CssUnit value)
     : top = value,
       right = value,
       bottom = value,
       left = value;
 
   // only (like EdgeInsets.fromLTRB)
-  const Padding.only({
+  const Margin.only({
     this.top = const Px(0),
     this.right = const Px(0),
     this.bottom = const Px(0),
@@ -24,21 +20,21 @@ class Padding extends PaddingValue {
   });
 
   // vertical (Flutter EdgeInsets.symmetric vertical)
-  const Padding.vertical(CssUnit value)
+  const Margin.vertical(CssUnit value)
     : top = value,
       bottom = value,
       left = const Px(0),
       right = const Px(0);
 
   // horizontal (Flutter EdgeInsets.symmetric horizontal)
-  const Padding.horizontal(CssUnit value)
+  const Margin.horizontal(CssUnit value)
     : left = value,
       right = value,
       top = const Px(0),
       bottom = const Px(0);
 
   // symmetric (Flutter EdgeInsets.symmetric)
-  const Padding.symmetric({
+  const Margin.symmetric({
     CssUnit vertical = const Px(0),
     CssUnit horizontal = const Px(0),
   }) : top = vertical,
@@ -50,6 +46,6 @@ class Padding extends PaddingValue {
   String get css => '${top.css} ${right.css} ${bottom.css} ${left.css}';
 }
 
-extension PaddingCssProperty on CssProperty {
-  CssProperty padding(Padding value) => add('padding', value.css);
+extension MarginCssProperty on CssProperty {
+  CssProperty margin(Margin value) => add('margin', value.css);
 }

@@ -1,8 +1,8 @@
+import 'package:dart_html_dsl/src/core/mixins/css_value_mixin.dart';
 import 'package:dart_html_dsl/src/core/styles/css_property.dart';
 
-sealed class CssUnit {
+abstract class CssUnit with CssValueMixin {
   const CssUnit(); // ⭐ အရေးကြီး
-  String get css;
 }
 
 class Px extends CssUnit {

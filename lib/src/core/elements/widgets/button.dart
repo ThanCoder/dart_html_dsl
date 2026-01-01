@@ -19,7 +19,7 @@ class Button extends HtmlElement {
              .border(Border.all(width: 0.px))
              .borderRadius(BorderRadius.all(3.px))
              .color(CssColors.white)
-             .padding(Padding.symmetric(vertical: 0.4.em, horizontal: 0.3.em))
+             .paddingValue(PaddingValue.symmetric(vertical: 0.4.em, horizontal: 0.3.em))
              .hover(
                (s) =>
                    s.backgroundColor(CssColors.red).cursor(CssCursor.pointer),

@@ -33,6 +33,6 @@ abstract class HtmlListElement extends HtmlElement {
   @override
   String renderHtml() {
     final res = children.map((e) => e.renderHtml()).join('\n');
-    return '<div$attrStr>$res<div>';
+    return '<div$attrStr>$res</div>';
   }
 }

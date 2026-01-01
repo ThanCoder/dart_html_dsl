@@ -9,7 +9,7 @@ mixin ScriptCollectorMixin {
       out.add(widget.cssScript);
     }
     if (widget is CssStyle) {
-      out.add(widget.css);
+      out.add((widget as CssStyle).css);
     }
     if (widget is HtmlElement && widget.getScopedStyle!.css.isNotEmpty) {
       if (widget.getScopedStyle != null) {

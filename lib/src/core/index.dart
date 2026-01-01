@@ -3,7 +3,7 @@ export 'enums/index.dart';
 export 'extensions/index.dart';
 export 'pages/index.dart';
 export 'js/index.dart';
-export 'styles/index.dart';
 export 'widgets/index.dart';
 export 'interfaces/index.dart';
 export 'states/index.dart';
+export 'styles/index.dart';

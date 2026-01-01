@@ -1,4 +1,4 @@
-import 'package:dart_html_dsl/src/core/enums/css_named_color.dart';
+import 'package:dart_html_dsl/src/core/styles/css_named_color.dart';
 import 'package:dart_html_dsl/src/core/styles/css_color.dart';
 
 class CssColors {
