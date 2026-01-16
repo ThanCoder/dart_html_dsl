@@ -6,6 +6,7 @@ class CssStyle {
   final String selector;
   final CssProperty cssProperty;
   final Map<String, CssProperty>? pseudos;
+  String? cssSource;
 
   CssStyle.global(this.selector, this.cssProperty)
     : scopeType = CssScopeType.global,
@@ -15,7 +16,16 @@ class CssStyle {
     : scopeType = CssScopeType.scoped,
       pseudos = cssProperty.pseudos;
 
+  CssStyle.fromSource(this.cssSource)
+    : cssProperty = CssProperty(),
+      selector = '',
+      scopeType = CssScopeType.global,
+      pseudos = null;
+
   String get css {
+    if (cssSource != null) {
+      return cssSource!;
+    }
     final buffer = StringBuffer();
     // base rule
     if (cssProperty.map.isNotEmpty) {

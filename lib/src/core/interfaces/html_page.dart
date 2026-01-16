@@ -11,7 +11,7 @@ abstract class HtmlPage extends HtmlWidget {
         .map((e) => e.renderHtml())
         .join('');
     final cssStyleTags = (pageProps.cssStyles ?? [])
-        .map((e) => e.renderHtml())
+        .map((e) => e.css)
         .join('');
     final scriptTags = (pageProps.jsScripts ?? [])
         .map((e) => e.renderHtml())

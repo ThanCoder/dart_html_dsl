@@ -11,7 +11,10 @@ void main() {
     pageProps: PageProps(
       title: 'Dart Html DSL',
       minify: false,
-      headers: [CssHeaderLink.href('style.css'), CssHeaderLink.shortcutIcon()],
+      // headers: [CssHeaderLink.href('style.css'), CssHeaderLink.shortcutIcon()],
+      cssStyles: [
+      CssStyle.fromSource('* {margin:0;padding:0;}'),
+      ]
     ),
   );
 
