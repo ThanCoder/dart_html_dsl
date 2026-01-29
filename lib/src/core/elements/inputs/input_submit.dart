@@ -5,7 +5,7 @@ class InputSubmit extends InputElement {
   final String text;
   InputSubmit(
     this.text, {
-    super.customClass,
+    super.className,
     super.id,
     super.onEvent,
     super.style,

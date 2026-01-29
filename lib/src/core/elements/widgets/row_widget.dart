@@ -6,7 +6,7 @@ class RowWidget extends HtmlListElement {
   RowWidget({
     super.key,
     super.attributes,
-    super.customClass,
+    super.className,
     super.id,
     super.onEvent,
     super.readOnly,

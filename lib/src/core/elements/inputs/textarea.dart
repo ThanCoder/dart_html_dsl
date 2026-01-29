@@ -13,7 +13,7 @@ class Textarea extends TagElement {
   final String? placeholder;
   Textarea({
     Map<String, String>? attributes,
-    super.customClass,
+    super.className,
     super.id,
     super.onEvent,
     super.readOnly,

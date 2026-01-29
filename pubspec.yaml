@@ -1,6 +1,6 @@
 name: dart_html_dsl
 description: A type-safe Dart DSL for building HTML, CSS, and JavaScript using pure Dart code, with scoped styles, pseudo-classes, and component-based architecture.
-version: 0.0.2
+version: 0.0.3
 repository: https://github.com/ThanCoder/dart_html_dsl
 
 environment:

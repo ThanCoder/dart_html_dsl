@@ -5,7 +5,7 @@ class TagElement extends HtmlElement {
   TagElement({
     super.key,
     super.id,
-    super.customClass,
+    super.className,
     super.attributes,
     super.style,
     super.onEvent,

@@ -3,7 +3,7 @@ import 'package:dart_html_dsl/src/core/elements/inputs/input_element_type.dart';
 
 class InputNumber extends InputElement {
   InputNumber({
-    super.customClass,
+    super.className,
     super.id,
     super.onEvent,
     super.style,

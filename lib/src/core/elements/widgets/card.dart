@@ -4,7 +4,7 @@ class Card extends TagElement {
   Card({
     super.key,
     super.attributes,
-    super.customClass,
+    super.className,
     super.id,
     super.onEvent,
     super.readOnly,

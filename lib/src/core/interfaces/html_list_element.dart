@@ -4,7 +4,7 @@ abstract class HtmlListElement extends HtmlElement {
   final List<HtmlWidget> children;
   HtmlListElement({
     super.attributes,
-    super.customClass,
+    super.className,
     super.disabled,
     super.id,
     super.key,

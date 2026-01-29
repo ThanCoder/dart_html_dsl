@@ -9,7 +9,7 @@ class InputElement extends HtmlElement {
     this.placeHolder,
     Map<String, String>? attributes,
     super.id,
-    super.customClass,
+    super.className,
     super.style,
     super.onEvent,
     required this.type,

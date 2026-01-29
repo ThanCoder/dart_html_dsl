@@ -8,7 +8,7 @@ class Button extends HtmlElement {
     required this.text,
     super.onEvent,
     super.attributes,
-    super.customClass,
+    super.className,
     super.id,
     CssProperty? style,
     super.readOnly,

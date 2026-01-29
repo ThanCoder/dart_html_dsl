@@ -7,7 +7,7 @@ class Select extends HtmlElement {
     CssProperty? style,
     super.id,
     super.attributes,
-    super.customClass,
+    super.className,
     this.options = const [],
   }) : super(
          child: null,

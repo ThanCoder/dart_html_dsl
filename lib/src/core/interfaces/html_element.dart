@@ -18,7 +18,7 @@ abstract class HtmlElement extends HtmlWidget {
   final Map<String, String>? attributes;
 
   /// Optional user-defined custom class
-  final String? customClass;
+  final String? className;
 
   CssStyle? _scopedStyle;
 
@@ -35,7 +35,7 @@ abstract class HtmlElement extends HtmlWidget {
     this.style,
     this.id,
     this.attributes,
-    this.customClass,
+    this.className,
     this.readOnly = false,
     this.disabled = false,
     this.onEvent = const [],
@@ -92,7 +92,7 @@ abstract class HtmlElement extends HtmlWidget {
     // Classes: scoped + custom
     final classes = [
       if (scopedId.isNotEmpty) scopedId,
-      if (customClass != null) customClass,
+      if (className != null) className,
     ];
     if (classes.isNotEmpty) buffer.write(' class="${classes.join(' ')}"');
 

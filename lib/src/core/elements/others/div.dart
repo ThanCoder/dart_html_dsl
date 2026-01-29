@@ -4,7 +4,7 @@ class Div extends TagElement {
   Div({
     super.key,
     super.id,
-    super.customClass,
+    super.className,
     super.style,
     super.attributes,
     super.onEvent,

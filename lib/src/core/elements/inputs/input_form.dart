@@ -6,7 +6,7 @@ class InputForm extends HtmlListElement {
     required super.children,
     this.method = FormMethod.get,
     super.attributes,
-    super.customClass,
+    super.className,
     super.id,
     super.onEvent,
     super.style,

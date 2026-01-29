@@ -8,7 +8,7 @@ class Img extends HtmlElement {
     super.key,
     super.id,
     super.attributes,
-    super.customClass,
+    super.className,
     super.readOnly,
     super.disabled,
     super.onEvent,

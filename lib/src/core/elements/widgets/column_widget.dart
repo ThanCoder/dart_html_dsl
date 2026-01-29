@@ -10,7 +10,7 @@ class ColumnWidget extends HtmlListElement {
     required super.children,
     super.key,
     super.attributes,
-    super.customClass,
+    super.className,
     super.id,
     super.onEvent,
     super.readOnly,

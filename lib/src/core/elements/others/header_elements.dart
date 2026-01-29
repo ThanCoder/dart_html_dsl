@@ -4,7 +4,7 @@ class H1 extends TagElement {
   H1({
     super.key,
     super.id,
-    super.customClass,
+    super.className,
     super.style,
     super.onEvent,
     super.attributes,
@@ -18,7 +18,7 @@ class H2 extends TagElement {
   H2({
     super.key,
     super.id,
-    super.customClass,
+    super.className,
     super.style,
     super.attributes,
     super.onEvent,
@@ -32,7 +32,7 @@ class H3 extends TagElement {
   H3({
     super.key,
     super.id,
-    super.customClass,
+    super.className,
     super.style,
     super.attributes,
     super.onEvent,
@@ -46,7 +46,7 @@ class H4 extends TagElement {
   H4({
     super.key,
     super.id,
-    super.customClass,
+    super.className,
     super.style,
     super.attributes,
     super.onEvent,

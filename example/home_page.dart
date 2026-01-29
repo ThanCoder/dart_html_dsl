@@ -12,7 +12,7 @@ class HomePage extends HtmlPage {
           .border(Border.style(BorderStyle.dashed)),
       children: [
         H1(style: CssProperty().color(CssColors.red), child: Text('h1 test')),
-
+      Link(href: '',child: Text('hello')),
         Button(
           text: 'hello',
           onEvent: [
